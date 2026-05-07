@@ -1,0 +1,158 @@
+/* =========================================
+   AUTH PAGES (LOGIN & SIGNUP)
+   ========================================= */
+
+/* Center the login card on the screen */
+.auth-page {
+    background-color: var(--bg-dark);
+    display: flex !important; /* Overrides default flex behavior */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* The Login Card - Uses the same background as Post Cards */
+.auth-container.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: var(--glass-shadow);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+/* Community Logo Icon */
+.auth-header h1 {
+    color: var(--primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.auth-header h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+/* Form Groups & Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    padding: 1.2rem 1rem 1.2rem 3.2rem; /* Extra left padding for label icon */
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-group label {
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+/* Float Label Effect */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -12px;
+    left: 10px;
+    font-size: 0.8rem;
+    background: var(--bg-card);
+    padding: 0 8px;
+    color: var(--primary);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(99, 102, 241, 0.05);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+}
+
+/* Neon Button - Matches .btn-publish */
+.btn-neon {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1.1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition: var(--transition);
+    margin-top: 1rem;
+}
+
+.btn-neon:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Footer Links */
+.auth-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.auth-footer p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.auth-footer a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+/* Responsive adjustment for small phones */
+@media (max-width: 480px) {
+    .auth-container.glass-card {
+        padding: 2rem 1.5rem;
+    }
+}

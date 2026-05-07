@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | Feed</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <i class="fas fa-rocket"></i> Community
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active"><i class="fas fa-house"></i> Feed</a></li>
+                <li><a href="#"><i class="fas fa-compass"></i> Explore</a></li>
+                <li><a href="#"><i class="fas fa-bell"></i> Notifications <span class="badge">3</span></a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="avatar" id="sidebarAvatar">U</div>
+                <div class="info">
+                    <span class="name" id="sidebarName">User Name</span>
+                    <span class="email" id="sidebarEmail">user@example.com</span>
+                </div>
+            </div>
+            <button class="btn-logout" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+    </aside>
+
+    <div class="main-wrapper">
+        <!-- Top Header -->
+        <header class="top-header">
+            <i class="fas fa-bars hamburger" id="menuToggle"></i>
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search posts, people, topics...">
+            </div>
+            <div class="header-right">
+                <div class="notif-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="header-profile">
+                    <div class="avatar" id="headerAvatar">J</div>
+                    <div class="user-info">
+                        <span class="name" id="headerName">User</span>
+                        <span class="email" id="headerEmail">user@example.com</span>
+                    </div>
+                    <i class="fas fa-chevron-down" style="font-size: 0.8rem; color: var(--muted); margin-left: 10px;"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Body -->
+        <main class="content-body">
+            <div class="section-header">
+                <i class="fas fa-pen-nib"></i>
+                <span>Create a New Post</span>
+            </div>
+
+            <!-- Create Post Card -->
+            <div class="create-post-card">
+                <form id="postForm">
+                    <input type="text" id="title" placeholder="Enter post title..." required>
+                    <textarea id="description" rows="3" placeholder="What's on your mind?" required></textarea>
+                    <div class="create-post-actions">
+                        <div class="post-tools">
+                            <i class="far fa-image"></i>
+                            <i class="far fa-smile"></i>
+                            <i class="fas fa-at"></i>
+                        </div>
+                        <button type="submit" class="btn-publish">
+                            <span>Publish Post</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="postsContainer">
+                <!-- Posts injected by JS -->
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../firebase.mjs" type="module"></script>
+    <script src="main.mjs" type="module"></script>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+        
+        menuToggle.onclick = (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('active');
+        };
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && sidebar.classList.contains('active')) {
+                if (!sidebar.contains(e.target) && e.target !== menuToggle) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
