@@ -6,60 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Community</title>
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .loader-container {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-dark);
-        }
-        .loader-logo {
-            font-size: 3.5rem;
-            font-family: var(--font-poppins);
-            font-weight: 800;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 2rem;
-            animation: fadeIn 1s ease-in-out;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s ease-in-out infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    </style>
+    
 </head>
 
 <body>
     <div class="loader-container">
-        <div class="loader-logo"><i class="fas fa-rocket"></i> Community</div>
-        <div class="spinner"></div>
-    </div>
-
-    <script type="module">
-        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
-        import { app } from "./firebase.mjs";
+        <div class="loader-logo">
+            <i class="fas fa-rocket"></i> 
+            <span>Community</span>
+        </div>
         
-        const auth = getAuth(app);
-        onAuthStateChanged(auth, (user) => {
-            setTimeout(() => {
-                if (user) {
-                    window.location.href = "./posts/index.html";
-                } else {
-                    window.location.href = "./login/index.html";
-                }
-            }, 1000);
-        });
-    </script>
+        <div class="spinner"></div>
+        
+        <p class="loading-text">Please wait, loading...</p>
+    </div>
+    
 </body>
 
+<script src="main.mjs" type="module"></script>
 </html>
